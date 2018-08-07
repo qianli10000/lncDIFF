@@ -6,7 +6,7 @@ Description: Differential expression analysis on long non coding RNA (lncRNA), u
              Quasi Maximum Likelihood (ZIQML) estimator and likelihood ratio test. This package only applies to DE analysis 
 			 on normalized counts.   
 Depends: R (>= 3.5.0)
-License: What license is it under?
+License: GPL(>=2)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.0

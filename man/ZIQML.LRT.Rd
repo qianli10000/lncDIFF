@@ -34,10 +34,13 @@ data('tcga.hnsc.match.edata','design')
 fit.log=ZIQML.fit(edata=tcga.hnsc.match.edata,design.matrix=design,link='log') 
 # Fit GLM by ZIQML with logarithmic link function 
 
-LRT.results1=ZIQML.LRT(fit.log,coef=2)  
+LRT.results=ZIQML.LRT(fit.log,coef=2)  
 # Likelihood ratio test on tumor vs normal, using observed p-values. 
 
-LRT.results2=ZIQML.LRT(fit.log,coef=2,simulated.pvalue=T,permutation=500)  
-# Likelihood ratio test on tumor vs normal, using empirical p-values with 500 permutations. 
+# Include simulated p-values
+fit.log.sim=ZIQML.fit(edata=tcga.hnsc.match.edata[1:10,],design.matrix=design,link='log') 
+LRT.results.sim=ZIQML.LRT(fit.log.sim,coef=2,simulated.pvalue=TRUE,permutation=200)  
+
+
 
 }

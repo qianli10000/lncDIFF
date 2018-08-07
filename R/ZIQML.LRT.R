@@ -20,15 +20,19 @@
 #' fit.log=ZIQML.fit(edata=tcga.hnsc.match.edata,design.matrix=design,link='log') 
 #' # Fit GLM by ZIQML with logarithmic link function 
 #' 
-#' LRT.results1=ZIQML.LRT(fit.log,coef=2)  
+#' LRT.results=ZIQML.LRT(fit.log,coef=2)  
 #' # Likelihood ratio test on tumor vs normal, using observed p-values. 
 #' 
-#' LRT.results2=ZIQML.LRT(fit.log,coef=2,simulated.pvalue=T,permutation=500)  
-#' # Likelihood ratio test on tumor vs normal, using empirical p-values with 500 permutations. 
+#' # Include simulated p-values
+#' fit.log.sim=ZIQML.fit(edata=tcga.hnsc.match.edata[1:10,],design.matrix=design,link='log') 
+#' LRT.results.sim=ZIQML.LRT(fit.log.sim,coef=2,simulated.pvalue=TRUE,permutation=200)  
+#' 
+#' 
 #' 
 #' @export  
-#' 
-ZIQML.LRT=function(ZIQML.fit,coef=NULL,simulated.pvalue=F,permutation=100){
+#' @importFrom stats optim p.adjust pchisq 
+
+ZIQML.LRT=function(ZIQML.fit,coef=NULL,simulated.pvalue=FALSE,permutation=100){
   if(is.null(coef)) stop('Coefficient must be specified')
   if(1 %in% coef) stop('Intercept (coefficient=1) is not allowed ')
   
@@ -55,7 +59,8 @@ ZIQML.LRT=function(ZIQML.fit,coef=NULL,simulated.pvalue=F,permutation=100){
 
     }
     
-     LRT.simulated.pvalue=rowMin(cbind((0.1+rowSums(LRT.STAT>LRT.stat))/permutation,rep(1,g)))
+     LRT.simulated.pvalue=(0.1+rowSums(LRT.STAT>LRT.stat))/permutation
+     LRT.simulated.pvalue=lapply(LRT.simulated.pvalue,function(x)min(x,1))
      LRT.simulated.fdr=p.adjust(LRT.simulated.pvalue,method = 'BH')
      results$LRT.Simulated.Pvalue=LRT.simulated.pvalue
      results$LRT.Simulated.FDR=LRT.simulated.fdr

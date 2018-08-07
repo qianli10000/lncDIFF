@@ -2,3 +2,6 @@
 
 export(ZIQML.LRT)
 export(ZIQML.fit)
+importFrom(stats,optim)
+importFrom(stats,p.adjust)
+importFrom(stats,pchisq)

@@ -22,6 +22,7 @@
 #' fit.identity=ZIQML.fit(edata=tcga.hnsc.match.edata,design.matrix=design,link='identity') 
 #' # Fit GLM by ZIQML with identity link function
 #' @export 
+#' @importFrom stats optim p.adjust pchisq 
 
 ZIQML.fit=function(edata,design.matrix,link='log'){
   
