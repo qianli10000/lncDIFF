@@ -6,3 +6,7 @@ lncDIFF is an R package for long non-coding RNA (lncRNA) differential expression
 #Clone and download lncDIFF to a local folder 'path' as lncDIFF-master.zip.
 
 install.packages("path/lncDIFF-master.zip", repos = NULL, type = "source")
+
+# Reference 
+
+Details for lncDIFF are  available at https://www.biorxiv.org/content/early/2018/09/18/420562
