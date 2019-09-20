@@ -9,4 +9,4 @@ install.packages("path/lncDIFF-master.zip", repos = NULL, type = "source")
 
 # Reference 
 
-Details for lncDIFF are  available at https://www.biorxiv.org/content/early/2018/09/18/420562
+Li, Qian, et al. "lncDIFF: a novel quasi-likelihood method for differential expression analysis of non-coding RNA." BMC genomics 20.1 (2019): 539.
