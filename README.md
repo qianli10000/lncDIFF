@@ -1,5 +1,6 @@
 # lncDIFF
-lncDIFF is now avaialbe on CRAN at https://cran.r-project.org/web/packages/lncDIFF/index.htmlan. This is a tool for low-counts long non-coding RNA (lncRNA) differential expression analysis, using generalized linear model with zero-inflated exponential quasi likelihood. It can be applied to commonly used normalized counts, e.g. RPKM (FPKM), TMM, UQ. The package 
+lncDIFF is now avaialbe on CRAN at https://cran.r-project.org/web/packages/lncDIFF/index.html  
+This is a tool for low-counts long non-coding RNA (lncRNA) differential expression analysis, using generalized linear model with zero-inflated exponential quasi likelihood. It can be applied to commonly used normalized counts, e.g. RPKM (FPKM), TMM, UQ. The package 
 
 # Install lncDIFF
 
